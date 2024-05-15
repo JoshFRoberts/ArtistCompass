@@ -1,15 +1,11 @@
 <aside id="main-sidebar">
-    <div id="logoarea">
-        <a href="/" class="logo-big">
-            <img src="{{ asset("/img/securepoint_sw.svg") }}" class="logo">
+    <div id="logoarea" class="flexrow">
+        <a href="/" style="text-decoration: 'none'" class="logo-big">
+            <img src="/masterychart_voronoi.png" alt="Masterychart" width="80" class="logo">
         </a>
-        <a href="/" class="logo-small display-md-none">
-            <img src="{{ asset("/img/securepoint-icon-w.svg") }}" class="logo">
-            @if (config('app.short_name', null))
-                <span class="app-name short display-sm-none">{{ config('app.short_name') }}</span>
-            @endif
-            <span class="app-name display-xs-none display-sm-block">{{ config('app.name') }}</span>
-        </a>
+        <h1 style="text-decoration: 'none'" class="app-name">
+            {{ config('app.name') }}
+        </h1>
 
     </div>
     @if (! Auth::guest())
