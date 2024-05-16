@@ -1,4 +1,46 @@
-import { createSpApp } from './vue';
+const createSpApp = (comp, options) => {
+    const app = createApp(comp, options);
+
+    // Register store plugin
+    app.use(store);
+
+    // Register global components
+    app.component('flash-toast', FlashToast);
+    app.component('verify-password', VerifyPassword);
+
+    app.component('content-2', VueContent2);
+    app.component('row', VueRow);
+    app.component('column', VueColumn);
+    app.component('vue-form', VueForm);
+    app.component('content-row', VueContentRow);
+    app.component('content-col', VueContentCol);
+    app.component('content-box', VueContentBox);
+    app.component('content-edit', VueContentEdit);
+    app.component('content-editable', VueContentEditable);
+
+    Object.keys(FormFieldTypes).forEach(key => {
+        app.component(Str.kebap(key), defineComponent({
+            extends: FormFieldTypes[key],
+            props: {
+                type: {
+                    default: Str.kebap(key).replace(/-type$/, '')
+                }
+            }
+        }));
+    });
+
+    if (location.href.indexOf('dev/vue-demo') > -1) {
+        app.component('demo-forms', Forms);
+        app.component('demo-boxes', Boxes);
+    }
+
+    // Add global axios property
+    app.config.globalProperties.$http = window.axios;
+
+    return app
+}
+
+
 import ComponentWrapper from './components/ComponentWrapper.vue';
 import { registerModule } from './vuex';
 

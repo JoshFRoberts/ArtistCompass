@@ -1,6 +1,267 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
 
+
+body.login-page #wrapper,
+body.register-page #wrapper {
+    max-width: 465px;
+    animation-name: none;
+    opacity: 1;
+}
+
+body.login-page,
+body.register-page {
+    #loginBg {
+        filter: blur(10px);
+        animation-name: none;
+        transform: scale(1.1, 1.1);
+    }
+}
+
+body #main-sidebar nav {
+    box-shadow: none;
+}
+
+main {
+    opacity: 1;
+    animation-name: none;
+}
+
+.lang-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    a {
+        padding: 8px / 2;
+        padding-bottom: 0;
+    }
+}
+
+
+#main-header {
+    z-index: 1;
+}
+
+#main-sidebar {
+    z-index: 0;
+    overflow: unset;
+}
+
+#main-nav-wrapper {
+    overflow: hidden;
+}
+
+main {
+    z-index: 2;
+}
+
+#app {
+    position: relative;
+    z-index: 1;
+
+    &>div {
+        position: relative;
+        z-index: inherit;
+    }
+}
+
+footer.main-footer {
+    position: relative;
+    z-index: 0;
+}
+
+body.open-menu,
+body.open-notification-menu {
+    #main-header {
+        z-index: 2;
+    }
+
+    #main-sidebar {
+        z-index: 1;
+    }
+
+    main {
+        z-index: 0;
+    }
+}
+
+
+div#flash-overlay-modal.modal.fade {
+    width: auto;
+    height: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    transform: scale(1, 1);
+    filter: none;
+    background-color: hsla(0, 0%, 0%, .5);
+
+    &.show {
+        opacity: 1;
+    }
+
+    .modal-dialog {
+        background: none;
+
+        .content-2 {
+
+            position: relative;
+
+            button.close {
+
+                background: none;
+                border: none;
+                width: auto;
+                height: auto;
+                padding: 0;
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+
+            p.text-h3 {
+                margin-top: 0;
+            }
+        }
+    }
+}
+
+body .modal {
+    display: block;
+    z-index: 1050;
+
+    .modal-content {
+        border: none;
+        border-radius: 0;
+        display: block;
+
+        .modal-header {
+            display: block;
+            border: none;
+            border-radius: 0;
+        }
+
+        .modal-footer {
+            display: block;
+
+            .btn {
+                color: #FFFFFF;
+            }
+        }
+    }
+}
+
+#teleport-target {
+    z-index: 6;
+    position: fixed;
+}
+
+
 body {
-    background-color: #1e1e1e;
-    color: #d7b0b0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #1e1e1e;
+    color: #D7B0B0;
+}
+
+body.login-page #wrapper,
+body.register-page #wrapper {
+    position: static;
+    transform: none;
+    -webkit-transform: none;
+}
+
+.webauthn-setup .keys table {
+    table-layout: fixed;
+
+    td:first-of-type,
+    td:nth-child(n+3) {
+        width: 48px;
+    }
+
+    tr:nth-child(even) {
+        background: #EEEEEE;
+    }
+}
+
+svg.demand-security-key {
+    margin: 0 auto;
+    width: 250px;
+}
+
+.newsletter-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.btn-link {
+    background: none;
+    border: none;
+    padding: 0 !important;
+    font: inherit;
+    cursor: pointer;
+    color: #E74C3C;
+}
+
+.btn-link:hover {
+    color: #d62c1a;
+    background: none;
+}
+
+.confirm-button,
+.confirm-button form {
+    display: inline;
+}
+
+#login-tfa-recover-tan:not(.hidden) {
+    display: flex;
+    align-items: center;
+
+    input {
+        width: 40px;
+        flex: 1 0 auto;
+    }
+}
+
+#login-tfa-recover-sms {
+
+    &:not(.hidden) {
+        display: inline-block;
+    }
+
+    input {
+        width: 128px;
+    }
+}
+
+.pointer-auto {
+    pointer-events: auto !important;
+}
+
+.form-addon-group {
+    display: flex;
+}
+
+.form-addon {
+    border-radius: 1px 0 0 1px;
+    display: block;
+    line-height: 32px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background: #fff;
+    font-weight: 600;
+    font-size: .9em;
+    user-select: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.125);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.select2-container .select2-search--dropdown .select2-search__field {
+    min-width: auto;
+}
+
+.code--box__select-all {
+    user-select: all;
 }
