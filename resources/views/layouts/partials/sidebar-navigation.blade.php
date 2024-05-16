@@ -4,15 +4,15 @@
 
     <li class="@active('/')" title="Dashboard">
         <a href="{{ url("/") }}" title="Home">
-            <i class="fal fa-home fa-fw" ></i> <span class="title">Home</span>
+            <i class="fas fa-home fa-fw" ></i> <span class="title">Home</span>
         </a>
     </li>
 
-    <li class="title">Desks</li>
+    <li class="title">Profile</li>
 
-    <li class="@active('/')" title="Tische Buchen">
-        <a href="{{ url('/') }}">
-            <i class="fal fa-calendar fa-fw"></i> <span class="title">Tische Buchen</span>
+    <li class="@active('/profile')" title="Profileinstellungen">
+        <a href="{{ url("/profile") }}" title="Profil">
+            <i class="fas fa-fw fa-user"></i><span class="title">Profil</span> 
         </a>
     </li>
 
