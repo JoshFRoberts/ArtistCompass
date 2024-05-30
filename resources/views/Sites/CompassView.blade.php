@@ -1,8 +1,6 @@
 @extends('layouts.common')
 @section('content')
 
-<div data-vue-component="Sip">
-
-</div>
+<span>Hier findet Dann der Compass statt</span>
 
 @endsection

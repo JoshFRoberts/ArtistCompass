@@ -20,8 +20,8 @@
     @endif
 @endsection
 
-@section('main-sidebar-navigation')
-    @include('layouts.partials.sidebar-navigation')
+@section('navigation')
+    @include('layouts.navigation')
 @endsection
 
 @section('before-content')

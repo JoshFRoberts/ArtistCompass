@@ -14,3 +14,14 @@ Route::get('/profile', function () {
         'title_text'=> 'Profil'
     ]);
 });
+
+Route::get('/compass', function () {
+    return view('Sites/CompassView', [
+        'title_text'=> 'Compass',
+        'title_icon' => 'fas fa-compass',
+    ]);
+})->name('compass');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
