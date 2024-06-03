@@ -4,10 +4,12 @@
     @include('layouts.partials.htmlheader')
 @show
 <body>
-    <div id="app" class="w-100">
+    <div id="app">
         @yield('navigation')
         <main class="py-4">
-            @yield('content')
+            <div id="main-container">
+                @yield('content')
+            </div>
         </main>
     </div>
 </body>
