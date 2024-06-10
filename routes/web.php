@@ -9,12 +9,13 @@ Route::get('/', function () {
     ]);
 });
 
+/*
 Route::get('/profile', function () {
     return view('Sites/FirstView', [
         'title_text'=> 'Profil'
     ]);
 });
-
+ */
 Route::get('/compass', function () {
     return view('Sites/CompassView', [
         'title_text'=> 'Compass',
@@ -22,6 +23,8 @@ Route::get('/compass', function () {
     ]);
 })->name('compass');
 
+/*
 Auth::routes();
+ */
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
