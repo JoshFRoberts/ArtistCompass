@@ -5,7 +5,7 @@ main {
     animation-name: none;
     z-index: 2;
 
-    height: 93.8vh;
+    height: 93vh;
     width: 100vw;
 
     background: #313131;
@@ -15,6 +15,15 @@ main {
 
 #main-container {
 
+}
+
+#welcome-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+nav {
+    height: 7vh;
 }
 
 #app {

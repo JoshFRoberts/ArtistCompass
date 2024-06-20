@@ -4,6 +4,8 @@
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <link type="image/x-icon" rel="icon" href="/public/favicon.ico">
+
     <script src="https://kit.fontawesome.com/f3d43c9d69.js" crossorigin="anonymous"></script>
 
     <title>{{ config("app.name") }}</title>

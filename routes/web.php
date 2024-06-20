@@ -4,8 +4,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome', [
-        'title_text' => 'Homepage',
-        'title_icon' => 'fas fa-user',
+        'title_text' => 'Willkommen beim Künstler-Kompass',
+        'title_icon' => 'fa fa-fw fa-compass',
     ]);
 });
 
