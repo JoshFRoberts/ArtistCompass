@@ -23,6 +23,13 @@ Route::get('/compass', function () {
     ]);
 })->name('compass');
 
+Route::get('/support', function () {
+    return view('Sites.LinuxSupport', [
+        'title_text'=> 'Linux Support',
+        'title_icon' => 'fas fa-support',
+    ]);
+})->name('linux');
+
 /*
 Auth::routes();
  */
