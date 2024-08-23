@@ -11,6 +11,6 @@
     </p>
     <p>Mac ist dir zu teuer?</p>
     <p>Und mit Linux kennst du dich nicht gut genug aus, um den Umzug "Einfach so" zu machen?</p>
-    <p>Schreib mir eine Mail an <span class="link" style="color: #0dcaf0">joshua.roberts@gmx.de</span>!</p>
+    <p>Schreib mir eine Mail an <span class="link" style="color: #0dcaf0">joshua punkt roberts at gmx punkt de</span>!</p>
 </div>
 @endsection
