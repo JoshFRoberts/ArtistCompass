@@ -1,25 +1,28 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
 
+body {
+
+}
+
 main {
-    opacity: 1;
-    animation-name: none;
     z-index: 2;
-
-    height: 93vh;
-    width: 100vw;
-
     background: #313131;
-    color: #ddd;
-    padding: 2%
+    color: #CECECE;
 }
 
 #main-container {
-
+    display: grid;
+    grid-template-columns: 1fr min(65ch, calc(100% - 64px)) 1fr;
+    grid-column-gap: 32px;
 }
 
-#welcome-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+#main-container > * {
+    grid-column: 2;
+}
+
+.full-bleed {
+    width: 100%;
+    grid-column: 1/-1;
 }
 
 nav {
@@ -35,12 +38,6 @@ nav {
         z-index: inherit;
     }
 
-}
-
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .btn-link {
@@ -82,4 +79,14 @@ body {
     user-select: none;
     border-top: 1px solid rgba(0, 0, 0, 0.125);
     border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+a {
+    color: #CECECE !important;
+}
+
+a:hover {
+    color: #ECECEC !important;
+    font-weight: bold;
+    text-shadow: 4px 8px 8px hsl(90deg 50% 50% / 0.5);
 }

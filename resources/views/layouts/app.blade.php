@@ -6,7 +6,7 @@
 <body>
     <div id="app">
         @yield('navigation')
-        <main class="py-4">
+        <main>
             <div id="main-container">
                 @yield('content')
             </div>
