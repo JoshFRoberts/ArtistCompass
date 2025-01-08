@@ -4,13 +4,11 @@
     @include('layouts.partials.htmlheader')
 @show
 <body>
-    <div id="app">
-        @yield('navigation')
-        <main>
-            <div id="main-container">
-                @yield('content')
-            </div>
-        </main>
-    </div>
+    @yield('navigation')
+    <main>
+        <div id="main-container">
+            @yield('content')
+        </div>
+    </main>
 </body>
 </html>

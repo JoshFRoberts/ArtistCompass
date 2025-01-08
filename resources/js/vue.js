@@ -1,20 +1,9 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
+import { instance } from "./vendor/secure-vue/widgets/SecureVue.js";
+import ExampleComponent from "./components/ExampleComponent.vue";
+import Sip from "./components/Sip.vue";
 
-Vue.use(VueRouter);
 
-const routes = [
-    { path: '/compass', component: CompassComponent },
-    { path: '/register', component: RegisterComponent },
-    { path: '/profile', component: ProfileComponent }
-];
-
-const router = new VueRouter({
-    mode: 'history',
-    routes
-});
-
-const app = new Vue({
-    el: '#app',
-    router
-});
+instance
+    .component('example-component', ExampleComponent)
+    .component('sip', Sip)
+    .run();

@@ -8,6 +8,7 @@ main {
     z-index: 2;
     background: #313131;
     color: #CECECE;
+    height: 93vh;
 }
 
 #main-container {
