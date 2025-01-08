@@ -16,12 +16,8 @@ Route::get('/profile', function () {
     ]);
 });
  */
-Route::get('/compass', function () {
-    return view('Sites/CompassView', [
-        'title_text'=> 'Compass',
-        'title_icon' => 'fas fa-compass',
-    ]);
-})->name('compass');
+Route::get('/compass', [\App\Http\Controllers\CompassController::class, 'index'])
+    ->name('compass');
 
 Route::get('/support', function () {
     return view('Sites.LinuxSupport', [
