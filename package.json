@@ -8,7 +8,7 @@
     "devDependencies": {
         "@popperjs/core": "^2.11.6",
         "@vitejs/plugin-vue": "^5.0.4",
-        "axios": "^1.6.4",
+        "axios": "^1.7.9",
         "bootstrap": "^5.3.3",
         "laravel-vite-plugin": "^1.0",
         "sass": "^1.56.1",
@@ -17,6 +17,8 @@
     },
     "packageManager": "yarn@1.22.19+sha1.4ba7fc5c6e704fce2066ecbfb0b0d8976fe62447",
     "dependencies": {
+        "@vueuse/core": "^12.3.0",
+        "pinia": "^2.3.0",
         "vue": "^3.4.27",
         "vue-multiselect": "^3.1.0",
         "vue-router": "^4.3.2",

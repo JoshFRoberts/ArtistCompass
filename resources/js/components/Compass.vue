@@ -1,11 +1,17 @@
 <script setup>
 
-import {NULL} from "sass";
+import { computed, ref, onMounted } from "vue";
+import { useStorage } from "../Stores/ArtistStorage.js";
+import { ArtistSpotHelper } from "../Helpers/ArtistSpotHelper.js";
+import ArtistSpot from "./ArtistSpot.vue";
+import CompassImage from '../../Img/Compass/political_compass.png'
+import { useElementSize, useImage } from "@vueuse/core";
+import axios from "axios";
 
 const props = defineProps(
     {
-        'artists': {
-            type: Object,
+        artists: {
+            type: Array,
             default() {
                 return {
                     id: {
@@ -38,45 +44,121 @@ const props = defineProps(
     }
 )
 
-props.artists.push({
-    name: 'sop',
-    authority: 5,
-    economy: 5
+const emits = defineEmits([
+    'SpotClicked',
+    'SpotHovered',
+]);
+
+
+const data = useStorage();
+const SpotHelper = new ArtistSpotHelper();
+
+const compassContainer = ref(null);
+const domImage = ref(null);
+const img = ref(new Image());
+
+const { isLoading } = useImage({ src: img.value.src})
+
+const compassContainerRect = useElementSize(compassContainer);
+
+const imgWidth = ref(300);
+const imgHeight = ref(500);
+
+const imageStyle = computed(() => {
+    return {
+        width: `${imgWidth.value * transformationRatio.value}px`,
+        height: `${imgHeight.value * transformationRatio.value}px`
+    }
 })
 
-console.log(props.artists)
+const transformationRatio = computed(() => {
+    let widthTrans = compassContainerRect.width.value / imgWidth.value;
+    let heightTrans = compassContainerRect.height.value / imgHeight.value;
+
+    if (widthTrans < heightTrans) {
+        return widthTrans;
+    }
+    else if (widthTrans > heightTrans) {
+        return heightTrans;
+    }
+    else {
+        return 1;
+    }
+})
+
+onMounted(() => {
+    updateImageDimensions();
+    data.artists = props.artists;
+})
+
+const updateImageDimensions = () => {
+    img.value.src = CompassImage
+
+    img.value.onload = () => {
+        imgWidth.value = img.value.width;
+        imgHeight.value = img.value.height;
+    }
+}
+
+function saveArtistPosition() {
+
+    emits('SpotHovered', {id: 0});
+
+    //TODO: Emit Event to Server To Save Given Artist
+}
+
+function artistClicked(artist) {
+    console.log(artist)
+}
 
 </script>
 
 <template>
-    <div id="artist-grid">
-        <div v-for="element in artists">
-            <div class="grid-piece" :style="{ gridColumn: element.economy, gridRow: element.authority }"></div>
-        </div>
+    <div ref="compassContainer"
+         id="compassContainer"
+         class="container">
+
+        <span v-if="isLoading">Loading...</span>
+        <img v-else-if="img.src !== ''"
+             ref="domImage"
+             id="Map" :src="img.src"
+             :style="imageStyle"
+             alt="Raumplan">
+
+        <ArtistSpot
+            v-for="artist in data.artists" :key="artist.id"
+            :index="SpotHelper.reduceDeskName(artist.name)"
+            color="#CECECE"
+            stroke="#b1d9e5"
+            :artist="SpotHelper.transposeSpot(transformationRatio, artist)"
+            @mouseover="emits('SpotHovered', artist)"
+            @click="artistClicked(artist)"
+        />
+
     </div>
 </template>
 
 <style scoped>
-#artist-grid {
-    margin: 20px;
-    height: 320px;
-    aspect-ratio: 1;
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    grid-template-rows: repeat(10, 1fr);
-    grid-gap: 2px;
-    outline: 1px lightblue solid;
+
+#compassContainer {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    min-height: 700px;
 }
 
-.grid-piece {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: #B1D9E5;
-    border: 1px solid #d7b0b0;
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+#Map {
+    user-select: none;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
+
+img {
+    z-index: 0;
+    opacity: 0.8;
+}
+
 </style>
