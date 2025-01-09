@@ -19,19 +19,22 @@ export class ArtistSpotHelper {
         return retVal;
     }
 
-    transposeSpot(transformationScale, deskObject) {
+    transposeSpot(artist) {
 
         return {
-            id: deskObject.id,
-            name: deskObject.name,
+            id: artist.id,
+            name: artist.name,
 
-            width: 50 * transformationScale,
-            height: 50 * transformationScale,
+            width: 50,
+            height: 50,
 
-            x: deskObject.economy * transformationScale,
-            y: deskObject.authority * transformationScale,
+            xPercent: ((artist.economy + 10) / 20) * 100,
+            yPercent: (( - artist.authority + 10) / 20) * 100,
 
-            rotation: deskObject.rotation,
+            economy: artist.economy,
+            authority: artist.authority,
+
+            rotation: artist.rotation,
         }
     }
 

@@ -63,7 +63,8 @@ const spotStyle = computed(() => {
     return {
         background: `${props.color}`,
         border: `2px ${props.stroke} solid`,
-        transform: `translate(${props.artist.economy}px, ${props.artist.authority}px)`
+        left: `${props.artist.xPercent}%`,
+        top: `${props.artist.yPercent}%`,
     }
 })
 
@@ -76,30 +77,20 @@ const spotStyle = computed(() => {
         :style="spotStyle"
         @click="emits('click')"
         @mouseover="emits('mouseover')"
-        @mouseleave="emits('mouseleave')"
-    />
+        @mouseleave="emits('mouseleave')">
+        {{ `${props.artist.economy}|${props.artist.authority}` }}
+    </div>
 </template>
 
 <style scoped>
 
 .artistSpot {
-    display: grid;
-    place-items: center;
+    border-radius: 50%;
+    width: 20px;
+    aspect-ratio: 1;
     position: absolute;
     z-index: 2;
-}
-
-.chair-rectangle {
-    border-top-left-radius: 35%;
-    border-top-right-radius: 35%;
-    z-index: 3;
-}
-
-.artist-name-span {
-    pointer-events: none;
-    user-select: none;
-    font-weight: bold;
-    z-index: 3;
+    color: #1e1e1e;
 }
 
 </style>

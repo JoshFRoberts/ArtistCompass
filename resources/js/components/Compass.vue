@@ -61,8 +61,8 @@ const { isLoading } = useImage({ src: img.value.src})
 
 const compassContainerRect = useElementSize(compassContainer);
 
-const imgWidth = ref(300);
-const imgHeight = ref(500);
+const imgWidth = ref(400);
+const imgHeight = ref(400);
 
 const imageStyle = computed(() => {
     return {
@@ -123,14 +123,14 @@ function artistClicked(artist) {
              ref="domImage"
              id="Map" :src="img.src"
              :style="imageStyle"
-             alt="Raumplan">
+             alt="Compass">
 
         <ArtistSpot
             v-for="artist in data.artists" :key="artist.id"
             :index="SpotHelper.reduceDeskName(artist.name)"
             color="#CECECE"
-            stroke="#b1d9e5"
-            :artist="SpotHelper.transposeSpot(transformationRatio, artist)"
+            stroke="#d7b0b0"
+            :artist="SpotHelper.transposeSpot(artist)"
             @mouseover="emits('SpotHovered', artist)"
             @click="artistClicked(artist)"
         />
@@ -151,7 +151,6 @@ function artistClicked(artist) {
 #Map {
     user-select: none;
     pointer-events: none;
-    position: absolute;
     top: 0;
     left: 0;
 }
