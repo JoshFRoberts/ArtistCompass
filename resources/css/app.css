@@ -80,13 +80,3 @@ nav {
     border-top: 1px solid rgba(0, 0, 0, 0.125);
     border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
-
-a {
-    color: #CECECE !important;
-}
-
-a:hover {
-    color: #ECECEC !important;
-    font-weight: bold;
-    text-shadow: 4px 8px 8px hsl(90deg 50% 50% / 0.5);
-}
