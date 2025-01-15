@@ -39,10 +39,6 @@ const props = defineProps({
             }
         }
     },
-    transformationRatio: {
-        type: Number,
-        default: 1,
-    },
     color: {
         type: String,
         default: '#ccc'
@@ -63,8 +59,8 @@ const spotStyle = computed(() => {
     return {
         background: `${props.color}`,
         border: `2px ${props.stroke} solid`,
-        left: `${props.artist.xPercent}%`,
-        top: `${props.artist.yPercent}%`,
+        gridColumn: props.artist.gridColumn,
+        gridRow: props.artist.gridRow,
     }
 })
 
@@ -78,7 +74,6 @@ const spotStyle = computed(() => {
         @click="emits('click')"
         @mouseover="emits('mouseover')"
         @mouseleave="emits('mouseleave')">
-        {{ `${props.artist.economy}|${props.artist.authority}` }}
     </div>
 </template>
 
@@ -86,11 +81,11 @@ const spotStyle = computed(() => {
 
 .artistSpot {
     border-radius: 50%;
-    width: 20px;
     aspect-ratio: 1;
-    position: absolute;
+    width: 25px;
+    height: 25px;
     z-index: 2;
-    color: #1e1e1e;
+    opacity: 0.9;
 }
 
 </style>

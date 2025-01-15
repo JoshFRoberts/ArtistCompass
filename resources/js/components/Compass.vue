@@ -61,28 +61,13 @@ const { isLoading } = useImage({ src: img.value.src})
 
 const compassContainerRect = useElementSize(compassContainer);
 
-const imgWidth = ref(400);
-const imgHeight = ref(400);
+const imgWidth = ref(771);
+const imgHeight = ref(771);
 
 const imageStyle = computed(() => {
     return {
-        width: `${imgWidth.value * transformationRatio.value}px`,
-        height: `${imgHeight.value * transformationRatio.value}px`
-    }
-})
-
-const transformationRatio = computed(() => {
-    let widthTrans = compassContainerRect.width.value / imgWidth.value;
-    let heightTrans = compassContainerRect.height.value / imgHeight.value;
-
-    if (widthTrans < heightTrans) {
-        return widthTrans;
-    }
-    else if (widthTrans > heightTrans) {
-        return heightTrans;
-    }
-    else {
-        return 1;
+        width: `${compassContainerRect.width.value}px`,
+        height: `${compassContainerRect.height.value}px`
     }
 })
 
@@ -95,8 +80,8 @@ const updateImageDimensions = () => {
     img.value.src = CompassImage
 
     img.value.onload = () => {
-        imgWidth.value = img.value.width;
-        imgHeight.value = img.value.height;
+        imgWidth.value = compassContainerRect.width.value;
+        imgHeight.value = compassContainerRect.height.value;
     }
 }
 
@@ -109,6 +94,15 @@ function saveArtistPosition() {
 
 function artistClicked(artist) {
     console.log(artist)
+}
+
+function getColor() {
+    let retVal = '#'
+
+}
+
+function getStroke() {
+    let retVal = '#'
 }
 
 </script>
@@ -127,10 +121,11 @@ function artistClicked(artist) {
 
         <ArtistSpot
             v-for="artist in data.artists" :key="artist.id"
-            :index="SpotHelper.reduceDeskName(artist.name)"
+            :index="SpotHelper.reduceName( artist.name)"
             color="#CECECE"
             stroke="#d7b0b0"
-            :artist="SpotHelper.transposeSpot(artist)"
+            :artist="SpotHelper.transposeSpot(imgWidth, imgHeight, artist)"
+            :image="img"
             @mouseover="emits('SpotHovered', artist)"
             @click="artistClicked(artist)"
         />
@@ -141,18 +136,21 @@ function artistClicked(artist) {
 <style scoped>
 
 #compassContainer {
-    position: relative;
-    display: flex;
+    padding: 0;
+    display: grid;
+    grid-template-rows: repeat(20, 1fr);
+    grid-template-columns: repeat(20,1fr);
     width: 100%;
     height: 100%;
-    min-height: 700px;
+    aspect-ratio: 1;
+    place-items: center;
 }
 
 #Map {
+    position: absolute;
     user-select: none;
     pointer-events: none;
-    top: 0;
-    left: 0;
+    aspect-ratio: 1;
 }
 
 img {

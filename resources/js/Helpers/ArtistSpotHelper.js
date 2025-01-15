@@ -6,11 +6,11 @@ export class ArtistSpotHelper {
     constructor() {
         this.#data = useStorage();
     }
-    reduceDeskName(deskName = '') {
+    reduceName(name = '') {
         let retVal = ''
 
-        for (let letterIndex = 0; letterIndex < deskName.length; letterIndex++) {
-            const letter = deskName.charAt(letterIndex);
+        for (let letterIndex = 0; letterIndex < name.length; letterIndex++) {
+            const letter = name.charAt(letterIndex);
             if (letter.toUpperCase() === letter) {
                 retVal += letter;
             }
@@ -19,7 +19,25 @@ export class ArtistSpotHelper {
         return retVal;
     }
 
-    transposeSpot(artist) {
+    transposeSpot(imgWidth, imgHeight, artist) {
+
+        let gridColumn = 0
+
+        if (artist.economy > 0) {
+            gridColumn = artist.economy + 10;
+        } else {
+            gridColumn = artist.economy + 11;
+        }
+
+        let gridRow = 0
+
+        if (artist.economy > 0) {
+            gridRow = - artist.authority + 11;
+        } else {
+            gridRow = - artist.authority + 10;
+        }
+
+
 
         return {
             id: artist.id,
@@ -28,13 +46,11 @@ export class ArtistSpotHelper {
             width: 50,
             height: 50,
 
-            xPercent: ((artist.economy + 10) / 20) * 100,
-            yPercent: (( - artist.authority + 10) / 20) * 100,
+            gridColumn,
+            gridRow,
 
             economy: artist.economy,
             authority: artist.authority,
-
-            rotation: artist.rotation,
         }
     }
 

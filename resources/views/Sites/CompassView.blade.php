@@ -5,4 +5,8 @@
         data-artists.parse="{{ $artists }}">
     </div>
 
+    <div data-vue-component="artist-details">
+
+    </div>
+
 @endsection
