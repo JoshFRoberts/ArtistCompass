@@ -53,6 +53,8 @@ const emits = defineEmits([
 const data = useStorage();
 const SpotHelper = new ArtistSpotHelper();
 
+data.artists = props.artists;
+
 const compassContainer = ref(null);
 const domImage = ref(null);
 const img = ref(new Image());
@@ -83,13 +85,6 @@ const updateImageDimensions = () => {
         imgWidth.value = compassContainerRect.width.value;
         imgHeight.value = compassContainerRect.height.value;
     }
-}
-
-function saveArtistPosition() {
-
-    emits('SpotHovered', {id: 0});
-
-    //TODO: Emit Event to Server To Save Given Artist
 }
 
 function artistClicked(artist) {

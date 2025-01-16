@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\ArtistResource;
 use App\Models\Artist;
 
 class CompassController extends Controller
@@ -11,7 +12,7 @@ class CompassController extends Controller
         return view('Sites.CompassView',
             [
                 'title' => 'Compass',
-                'artists' => Artist::all(),
+                'artists' => ArtistResource::collection(Artist::all())->toJson(),
             ]
         );
     }

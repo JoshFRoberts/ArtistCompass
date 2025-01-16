@@ -12,8 +12,8 @@ class ArtistRequest extends FormRequest
             'name' => ['required'],
             'private_name' => ['nullable'],
             'age' => ['nullable'],
-            'economy' => ['required', 'integer'],
-            'authority' => ['required', 'integer'],
+            'economy' => ['required', 'integer', 'min:-10', 'max:10'],
+            'authority' => ['required', 'integer', 'min:-10', 'max:10'],
         ];
     }
 

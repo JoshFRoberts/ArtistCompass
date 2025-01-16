@@ -26,6 +26,9 @@ Route::get('/support', function () {
     ]);
 })->name('linux');
 
+Route::post('/new-artist', [App\Http\Controllers\ArtistController::class, 'store'])
+    ->name('newArtist');
+
 /*
 Auth::routes();
  */
