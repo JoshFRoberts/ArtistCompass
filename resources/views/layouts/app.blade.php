@@ -6,8 +6,18 @@
 <body>
     @yield('navigation')
     <main>
-        <div id="main-container">
-            @yield('content')
+        <div class="row content">
+            <div class="col-sm-2 sidenav">
+                
+            </div>
+            <div class="col-sm-8 text-left">
+                <div id="main-container">
+                    @yield('content')
+                </div>
+            </div>
+            <div class="col-sm-2 sidenav">
+
+            </div>
         </div>
     </main>
 </body>

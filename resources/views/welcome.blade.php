@@ -1,14 +1,13 @@
 @extends('layouts.common')
 @section('content')
-    <div id="app" class="text-center align-content-around w-100">
+    <div id="app" class="text-center align-content-around">
         <h3>{{ $title_text }}<i class="{{ $title_icon }}"></i></h3>
         <h5>In Zukunft wird man hier Künstler politisch einordnen können.</h5>
         <h5>Dies passiert auf einem 2-Dimensionalen <a href="https://politicalcompass.org/test/de?page=1">politischen Kompass</a></h5>
         <br>
         <div id="welcome-grid" class="grid grid-cols-2">
             <div>
-                <img src="political_compass.png" alt="compass">
-
+                <img src="/storage/political_compass.png" class="img-fluid rounded-top" alt="compass">
             </div>
             <div class="text-start">
                 <h4>Die Idee:</h4>

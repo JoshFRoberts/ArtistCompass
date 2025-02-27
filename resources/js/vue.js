@@ -4,6 +4,7 @@ import Sip from "./components/Sip.vue";
 import Compass from "./components/Compass.vue";
 import {createPinia} from "pinia";
 import ArtistDetails from "./components/ArtistDetails.vue";
+import Quiz from "./components/Quiz.vue";
 
 const pinia = createPinia();
 
@@ -12,5 +13,6 @@ instance
     .component('sip', Sip)
     .component('Compass', Compass)
     .component('ArtistDetails', ArtistDetails)
+    .component('Quiz', Quiz)
     .plugin(pinia)
     .run();

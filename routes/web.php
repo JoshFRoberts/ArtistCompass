@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\QuizController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -28,6 +29,15 @@ Route::get('/support', function () {
 
 Route::post('/new-artist', [App\Http\Controllers\ArtistController::class, 'store'])
     ->name('newArtist');
+
+Route::get('/quiz', [QuizController::class, 'index'])
+    ->name('quiz');
+
+Route::get('/quiz/get-line', [QuizController::class, 'getPunchline'])
+    ->name('getLine');
+
+Route::post('/quiz/{quizQuestion}', [QuizController::class, 'giveAnswer'])
+    ->name('getAnswer');
 
 /*
 Auth::routes();
