@@ -1,15 +1,82 @@
 // Fonts
-@import url('https://fonts.bunny.net/css?family=Nunito');
 
 // Variables
 @import 'variables';
 
 
-$primary: #b1d9e5;
-$secondary: #c0c519;
-$success: #519c0c;
-$danger: #f52b2b;
+/* SCSS HEX */
+$auth-left: #ff0000ff;
+$auth-left-light: #ff9797ff;
+$auth-right: #2f5597ff;
+$auth-right-light: #b4c7e7ff;
+$lib-left: #548235ff;
+$lib-left-light: #c5e0b4ff;
+$lib-right: #bf9000ff;
+$lib-right-light: #ffe699ff;
+$lelele: #1e1e1eff;
 
+/* SCSS HSL */
+$auth-left: hsla(0, 100%, 50%, 1);
+$auth-left-light: hsla(0, 100%, 80%, 1);
+$auth-right: hsla(218, 53%, 39%, 1);
+$auth-right-light: hsla(218, 52%, 81%, 1);
+$lib-left: hsla(96, 42%, 36%, 1);
+$lib-left-light: hsla(97, 42%, 79%, 1);
+$lib-right: hsla(45, 100%, 37%, 1);
+$lib-right-light: hsla(45, 100%, 80%, 1);
+$lelele: hsla(0, 0%, 12%, 1);
+
+/* SCSS RGB */
+$auth-left: rgba(255, 0, 0, 1);
+$auth-left-light: rgba(255, 151, 151, 1);
+$auth-right: rgba(47, 85, 151, 1);
+$auth-right-light: rgba(180, 199, 231, 1);
+$lib-left: rgba(84, 130, 53, 1);
+$lib-left-light: rgba(197, 224, 180, 1);
+$lib-right: rgba(191, 144, 0, 1);
+$lib-right-light: rgba(255, 230, 153, 1);
+$lelele: rgba(30, 30, 30, 1);
+
+/* SCSS Gradient */
+$gradient-top: linear-gradient(0deg, #ff0000ff, #ff9797ff, #2f5597ff, #b4c7e7ff, #548235ff, #c5e0b4ff, #bf9000ff, #ffe699ff, #1e1e1eff);
+$gradient-right: linear-gradient(90deg, #ff0000ff, #ff9797ff, #2f5597ff, #b4c7e7ff, #548235ff, #c5e0b4ff, #bf9000ff, #ffe699ff, #1e1e1eff);
+$gradient-bottom: linear-gradient(180deg, #ff0000ff, #ff9797ff, #2f5597ff, #b4c7e7ff, #548235ff, #c5e0b4ff, #bf9000ff, #ffe699ff, #1e1e1eff);
+$gradient-left: linear-gradient(270deg, #ff0000ff, #ff9797ff, #2f5597ff, #b4c7e7ff, #548235ff, #c5e0b4ff, #bf9000ff, #ffe699ff, #1e1e1eff);
+$gradient-top-right: linear-gradient(45deg, #ff0000ff, #ff9797ff, #2f5597ff, #b4c7e7ff, #548235ff, #c5e0b4ff, #bf9000ff, #ffe699ff, #1e1e1eff);
+$gradient-bottom-right: linear-gradient(135deg, #ff0000ff, #ff9797ff, #2f5597ff, #b4c7e7ff, #548235ff, #c5e0b4ff, #bf9000ff, #ffe699ff, #1e1e1eff);
+$gradient-top-left: linear-gradient(225deg, #ff0000ff, #ff9797ff, #2f5597ff, #b4c7e7ff, #548235ff, #c5e0b4ff, #bf9000ff, #ffe699ff, #1e1e1eff);
+$gradient-bottom-left: linear-gradient(315deg, #ff0000ff, #ff9797ff, #2f5597ff, #b4c7e7ff, #548235ff, #c5e0b4ff, #bf9000ff, #ffe699ff, #1e1e1eff);
+$gradient-radial: radial-gradient(#ff0000ff, #ff9797ff, #2f5597ff, #b4c7e7ff, #548235ff, #c5e0b4ff, #bf9000ff, #ffe699ff, #1e1e1eff);
+
+
+$primary: $auth-right-light;
+$secondary: $auth-right;
+$accent: $lib-left-light;
+$background: $lelele;
+
+$success: $accent;
+$danger: $auth-left;
 
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
+
+/* Width */
+::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: $auth-right-light;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: $accent;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: $lib-left;
+}

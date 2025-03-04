@@ -1,0 +1,24 @@
+
+root {
+    /* CSS HEX */
+    --auth-left: #ff0000ff;
+    --auth-left-light: #ff9797ff;
+    --auth-right: #2f5597ff;
+    --auth-right-light: #b4c7e7ff;
+    --lib-left: #548235ff;
+    --lib-left-light: #c5e0b4ff;
+    --lib-right: #bf9000ff;
+    --lib-right-light: #ffe699ff;
+    --lelele: #1e1e1eff;
+
+    /* CSS HSL */
+    --auth-left: hsla(0, 100%, 50%, 1);
+    --auth-left-light: hsla(0, 100%, 80%, 1);
+    --auth-right: hsla(218, 53%, 39%, 1);
+    --auth-right-light: hsla(218, 52%, 81%, 1);
+    --lib-left: hsla(96, 42%, 36%, 1);
+    --lib-left-light: hsla(97, 42%, 79%, 1);
+    --lib-right: hsla(45, 100%, 37%, 1);
+    --lib-right-light: hsla(45, 100%, 80%, 1);
+    --lelele: hsla(0, 0%, 12%, 1);
+}

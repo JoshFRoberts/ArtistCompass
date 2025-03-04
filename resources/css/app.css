@@ -1,5 +1,8 @@
+@import "variables.css";
+
 body {
     height: 100vh;
+    font-family: "JetBrains Mono", monospace;
 }
 
 main {
@@ -7,7 +10,8 @@ main {
     background: #313131;
     color: #CECECE;
     height: 93vh;
-    overflow-y: scroll;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 #main-container {
@@ -89,5 +93,6 @@ a {
 a:hover {
     color: #ECECEC !important;
     font-weight: bold;
-    text-shadow: 4px 8px 8px hsl(90deg 50% 50% / 0.5);
+    text-shadow: 4px 8px 8px var(--bs-primary);
 }
+
