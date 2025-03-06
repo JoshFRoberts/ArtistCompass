@@ -11,14 +11,15 @@ class QuizQuestionResource extends JsonResource
 {
     public function toArray(Request $request): array
     {
-        $options = [
-            $this->correct_answer,
+        $options = collect([
             $this->false_answer_0,
             $this->false_answer_1,
             $this->false_answer_2,
-        ];
+        ])->random(2);
 
-        shuffle($options);
+        $options[] = $this->correct_answer;
+
+        $options = $options->shuffle();
 
         return [
             'id' => $this->id,
