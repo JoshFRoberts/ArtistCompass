@@ -32,10 +32,10 @@ onMounted(() => {
         <div
             v-for="(option, index) in quiz.currentQuiz.question.options"
             :key="index"
-            class="col-12 col-md-6 mb-3"
+            class="col-12 mb-3"
         >
             <button
-                class="btn btn-lg btn-block"
+                class="btn btn-lg btn-block text-center"
                 :class="[
                     selectedOption === option
                         ? (quiz.currentQuiz.feedback === option ? 'btn-success' : 'btn-danger')
@@ -51,24 +51,25 @@ onMounted(() => {
     </div>
 
     <!-- Feedback row - full width -->
-    <div v-if="quiz.currentQuiz.feedback && quiz.currentQuiz.feedback !== selectedOption" class="row mt-2 mb-4">
+    <div class="row mt-2 mb-4">
         <div class="col-12">
-            <div class="alert" :class="quiz.currentQuiz.feedback === selectedOption ? 'alert-success' : 'alert-danger'">
-                Korrekte Antwort: {{ quiz.currentQuiz.feedback }}
+            <div class="row">
+                <div class="flex-grow-1">
+                    <div class="alert alert-danger"
+                        v-if="quiz.currentQuiz.feedback && quiz.currentQuiz.feedback !== selectedOption">
+                        Korrekte Antwort: {{ quiz.currentQuiz.feedback }}
+                    </div>
+                </div>
+                <div class="flex-grow-1">
+                    <button
+                        v-if="quiz.currentQuiz.isAnswered"
+                        class="btn btn-primary btn-block"
+                        @click="selectedOption = ''; quiz.fetchQuestion()"
+                    >
+                        Nächste Line
+                    </button>
+                </div>
             </div>
-        </div>
-    </div>
-
-    <!-- Next question button - full width -->
-    <div class="row mt-4">
-        <div class="col-12">
-            <button
-                class="btn btn-primary btn-lg btn-block"
-                @click="quiz.fetchQuestion(); selectedOption = ''"
-                :disabled="!quiz.currentQuiz.isAnswered"
-            >
-                Nächste Line
-            </button>
         </div>
     </div>
 </div>
