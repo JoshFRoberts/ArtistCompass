@@ -4,10 +4,12 @@ body {
 
 }
 
+    
 main {
     z-index: 2;
-    background: #313131;
-    color: #CECECE;
+    background: #dad1b4;
+    color: #050060;
+    padding: 2%
 }
 
 #main-container {
@@ -38,6 +40,13 @@ nav {
         z-index: inherit;
     }
 
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Comic Sans MS", "Comic Sans", cursive !important;
 }
 
 .btn-link {
@@ -89,4 +98,36 @@ a:hover {
     color: #ECECEC !important;
     font-weight: bold;
     text-shadow: 4px 8px 8px hsl(90deg 50% 50% / 0.5);
+}
+
+#polcom {
+    aspect-ratio: 1;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5),
+              0 0 20px rgba(0, 0, 0, 0.4),
+              0 0 30px rgba(0, 0, 0, 0.3);
+    height: 500px;
+    width: 500px;
+}
+
+#erklaerung {
+   font-size: medium;
+}
+
+.list-group-item {
+    background-color: #dad1b4 !important;
+    color: #050060 !important;
+}
+
+#kompasslink {
+    color: #050060 !important;
+}
+
+#kompasslink:hover {
+    color:#d62c1a !important;
+}
+
+#polcom:hover {
+    content: url('../../public/mapache-pedro.gif');
+    width: 500px;
+    height: 500px;
 }

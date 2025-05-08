@@ -4,11 +4,13 @@
         <h3>{{ $title_text }}<i class="{{ $title_icon }}"></i></h3>
         <h5>In Zukunft wird man hier Künstler politisch einordnen können.</h5>
         <h5>Dies passiert auf einem 2-Dimensionalen <a href="https://politicalcompass.org/test/de?page=1">politischen Kompass</a></h5>
+        <h3><i class="{{ $title_icon }}"></i>{{ $title_text }}</h3>
+        <h5>In Zukunft werden sie hier Künstler politisch einordnen können.</h5>
+        <h5>Dies passiert auf einem 2-Dimensionalen <a id="kompasslink" href="https://politicalcompass.org/">politischen Kompass</a></h5>
         <br>
         <div id="welcome-grid" class="grid grid-cols-2">
             <div>
-                <img src="political_compass.png" alt="compass">
-
+                <img id="polcom" src="political_compass3.png" alt="Politischer Kompass">
             </div>
             <div class="text-start">
                 <h4>Die Idee:</h4>
@@ -16,6 +18,14 @@
                     <li>Künstler haben stellenweise politische Ansichten, die sie beispielsweise in ihren Texten vertreten</li>
                     <li>Entsprechend dieser Ansichten werden sie auf dem links abgebildeten politischen Spektrum dargestellt</li>
                     <li>So kann man über sich selbst erfahren, welche Künstler:innern einem mit ihren Ansichen näher stehen und welche eher weniger.</li>
+                    <!-- Some borders are removed -->
+                    <ul id="erklaerung" class="list-group list-group-flush">
+                        <li class="list-group-item">Künstler haben eine eigene politische Ansicht die sie in ihren Texten vertreten</li>
+                        <li class="list-group-item">Entsprechend dieser Ansichten werden sie auf dem links abgebildeten politischen Spektrum dargestellt</li>
+                        <li class="list-group-item">So kann man über sich selbst erfahren, welche Politischen ansichten man sich gern anhört und welche nicht so gern.</li>
+                        <li class="list-group-item">???</li>
+                        <li class="list-group-item">Profit</li>
+                    </ul>
                 </ol>
             </div>
             <div class="text-start">
